@@ -90,11 +90,13 @@ function getArrayCellRect(i, j) {
 function drawMatrix(context, matrix) {
 	for (var i = 0; i < matrix.length; i++) {
 		for (var j = 0; j < matrix[i].length; j++) {
-			if (matrix[i][j]) {
-				var color = chooseColor(matrix[i][j]);
+			
+			var matrixCell = matrix[i][j];
+			if (matrixCell) {
+				var color = chooseColor(matrixCell);
 				context.fillStyle = color;
+
 				var arrayCellRect = getArrayCellRect(i, j);
-				console.log(arrayCellRect, color);
 				context.fillRect(arrayCellRect.x, arrayCellRect.y, arrayCellRect.height, arrayCellRect.width);
 			}
 		}
